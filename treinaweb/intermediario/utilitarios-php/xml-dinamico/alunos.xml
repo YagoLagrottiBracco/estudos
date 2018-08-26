@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treinaweb>
+  <aluno id="1">
+    <nome>Pedro</nome>
+    <cidade>São Paulo</cidade>
+  </aluno>
+  <aluno id="2">
+    <nome>Ana</nome>
+    <cidade>São Paulo</cidade>
+  </aluno>
+  <aluno id="3">
+    <nome>Carla</nome>
+    <cidade>Curitiba</cidade>
+  </aluno>
+  <aluno id="4">
+    <nome>Marcos</nome>
+    <cidade>Recife</cidade>
+  </aluno>
+</treinaweb>

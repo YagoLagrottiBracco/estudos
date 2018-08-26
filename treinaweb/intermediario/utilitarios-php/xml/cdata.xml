@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estrutura>
+  <callback>
+    <![CDATA[
+    <script type="text/javascript">
+      var ano = 2014;
+      var mes = 6;
+      if ( ano==2014 && mes==6 ) {
+        alert("É copa do mundo!")
+      }
+    </script>
+    ]]>
+  </callback>
+</estrutura>
