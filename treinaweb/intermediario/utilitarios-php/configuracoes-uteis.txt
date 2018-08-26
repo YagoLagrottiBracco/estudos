@@ -1,0 +1,7 @@
+Erros no php.ini
+
+display_errors=On (deve ser colocado Off caso não queira apresentar nenhum erro)
+log_errors (para gerar log de erros, deverá settar On ou Off para funcionar)
+error_log (seria a diretiva que esta salvando os logs de erro, necessário configurar para cada servidor o caminho certo)
+date.timezone (para auterar o fuso horário do PHP)
+zend_extension: xdebug (para deixar os erros mais visiveis e as respostas melhores.)
