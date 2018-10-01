@@ -1,43 +1,57 @@
-<?php 
+<?php
 
-require_once 'classes/Conexao.php';
-
-class Categoria {
+class Categoria
+{
 
     public $id;
-    public $dados;
+    public $nome;
 
-    public function modelo($metodo = null, $colunas = null, $tabela = null, $valores = null, $condicao = null){
-
-        $conexao = Conexao::pegarConexao();
-
-        switch ($metodo) {
-            case 'select':
-                $query = 'SELECT '.$colunas.' FROM '.$tabela.(is_null($condicao) ? '' : ' WHERE '.$condicao);
-                return $conexao->query($query)->fetchAll();
-                break;
-
-            case 'insert':
-                $query = 'INSERT INTO '.$tabela.' ('.$colunas.') VALUES ("'.$valores.'")'.(is_null($condicao) ? '' : ' WHERE '.$condicao);
-                return $conexao->exec($query);
-                break;
-
-            case 'update':
-                # code...
-                break;
-
-            case 'delete':
-                # code...
-                break;
+    public function __construct($id = false)
+    {
+        if ($id) {
+            $this->id = $id;
+            $this->carregar();
         }
     }
 
-    public function listar() {
-        $lista = $this->modelo('select', 'id, nome', 'categorias');
+    public function listar()
+    {
+        $query = "SELECT id, nome FROM categorias";
+        $conexao = Conexao::pegarConexao();
+        $resultado = $conexao->query($query);
+        $lista = $resultado->fetchAll();
         return $lista;
     }
 
-    public function inserir() {
-        return $this->modelo('insert', 'nome', 'categorias', $this->dados);
+    public function carregar()
+    {
+        $query = "SELECT id, nome FROM categorias WHERE id = " . $this->id;
+        $conexao = Conexao::pegarConexao();
+        $resultado = $conexao->query($query);
+        $lista = $resultado->fetchAll();
+        foreach ($lista as $linha) {
+            $this->nome = $linha['nome'];
+        }
+    }
+
+    public function inserir()
+    {
+        $query = "INSERT INTO categorias (nome) VALUES ('" . $this->nome . "')";
+        $conexao = Conexao::pegarConexao();
+        $conexao->exec($query);
+    }
+
+    public function atualizar()
+    {
+        $query = "UPDATE categorias set nome = '" . $this->nome . "' WHERE id = " . $this->id;
+        $conexao = Conexao::pegarConexao();
+        $conexao->exec($query);
+    }
+
+    public function excluir()
+    {
+        $query = "DELETE FROM categorias WHERE id = " . $this->id;
+        $conexao = Conexao::pegarConexao();
+        $conexao->exec($query);
     }
 }

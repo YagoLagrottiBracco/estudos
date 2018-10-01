@@ -1,11 +1,11 @@
 <?php
-    class Conexao {
-        public static function pegarConexao() {
-            $dadosDb = ['host'      => 'localhost',
-                        'nomeBanco' => 'estoque',
-                        'usuario'   => 'root',
-                        'senha'     => ''];
 
-            return new PDO('mysql:host='.$dadosDb['host'].';dbname='.$dadosDb['nomeBanco'], $dadosDb['usuario'], $dadosDb['senha']);
-        }
+class Conexao
+{
+    public static function pegarConexao()
+    {
+        $conexao = new PDO(DB_DRIVE . ':host=' . DB_HOSTNAME . ';dbname=' . DB_DATABASE, DB_USERNAME, DB_PASSWORD);
+        $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conexao;
     }
+}
