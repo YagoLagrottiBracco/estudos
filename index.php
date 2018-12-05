@@ -62,7 +62,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-muted" href="http://localhost/estudos/intermediario/index.php">Intermediário</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-muted" href="http://localhost/estudos/avancado/fundamentos-linguagem/funcoes.php">Avançado</a>
+                                <a class="dropdown-item text-muted" href="http://localhost/estudos/treinaweb/avancado/fundamentos-linguagem/index.php">Avançado</a>
                             </div>
                         </li>
                     </ul>
