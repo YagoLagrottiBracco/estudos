@@ -1,27 +1,18 @@
 <?php
 
 class Validacao{
-
-
-	public static function protegeAtributo($atributo){
-
-		if($atributo == "titular" || $atributo == "saldo"){
-
-			throw new Exception("O atributo $atributo continua privado ");
-			
-		}
+	public static function protegeAtributo($atributo)
+	{
+		if($atributo == "titular" || $atributo == "saldo") throw new Exception("O atributo $atributo continua privado ");
 	}
 
-
-	public static function verificaNumerico($valor){
-
-		if(!is_numeric($valor)){
-			throw new Exception("o Tipo passado nao é um numero valido");
-			
-		}
+	public static function verificaNumerico($valor)
+	{
+		if(!is_numeric($valor)) throw new InvalidArgumentException("o Tipo passado nao é um numero valido");
 	}
 
-
-
+	public static function verificaValorNegativo($valor): void
+	{
+		if ($valor < 0) throw new Exception("Valor não é permitido.");
+	}
 }
-?>
